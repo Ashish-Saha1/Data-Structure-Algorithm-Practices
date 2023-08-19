@@ -12,10 +12,17 @@
 
         class Node{
             constructor(value){
-                this.head = value;
+                this.value = value;
+                this.previous = null;
                 this.next = null;
             }
         }
+
+        // let newNode = new Node (10);
+        //     newNode.next = new Node(20);
+        //     newNode.next.next = new Node(30);
+        //     newNode.previous = new Node(5);
+        //     console.log(newNode)
 
        
         
@@ -27,21 +34,49 @@
                 this.length = 0;
             }
 
+            push(value){
+
+                let newNode = new Node (value)
+
+                if(this.length === 0){
+                    this.head = newNode;
+                    this.tail = newNode;
+        
+
+                }else{
+                    //my implemention but it was wrong
+                    // let prev = this.tail;
+                    // this.tail.next = newNode;
+                    // this.tail = newNode;
+                    // this.tail.previous = prev.value;
+
+                    this.tail.next = newNode;
+                    newNode.previous = this.tail;
+                    this.tail = newNode;
+                   
+                }
 
 
+                this.length++;
 
+            }
 
 
         }
 
         let doubleLink = new DoublyLinkList()
 
-        console.log(doubleLink);
+        doubleLink.push(10);
+        doubleLink.push(20);
+        doubleLink.push(30);
+        // doubleLink.push(40);
+
+        console.log(doubleLink)
         
 
 
 
-        Push
+        
 
 
 
