@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+// function biaSearch(arr, value){
+//     let start = 0;
+//     let end = arr.length-1;
+    
+    
+//     for(let i=0; i<arr.length; i++){
+//         let middle = Math.round((end+start)/2);
+
+//         if(value === arr[middle]){
+//             return middle;
+//         }
+
+//         if(value < arr[middle]){
+//             end = middle-1;
+//         }else if(value > arr[middle]){
+//             start = middle+1;
+//         }
+        
+//     }
+//         return -1;
+// }
+
+//  console.log(biaSearch([7, 12, 15, 22, 35, 40], 35));
+                      
+
+function biaSearch(arr, value){
+    let start = 0;
+    let end = arr.length-1;
+    
+    
+    while(start <= end){
+       let middle = Math.round((end+start)/2);
+       if(value === arr[middle]){
+            return middle;
+        }
+
+        if(value < arr[middle]){
+            end = middle-1;
+        }else if(value > arr[middle]){
+            start = middle+1;
+        }
+        
+    }
+        return -1
+     
+}
+
+ console.log(biaSearch([7, 12, 15, 22, 35, 40], 35));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

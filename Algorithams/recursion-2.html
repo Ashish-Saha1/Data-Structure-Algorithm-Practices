@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let inputArr = new Array(8900).fill(1)
+
+
+        function sumArrSlow(arr){
+            if(arr.length === 0) return 0;
+
+            let restElement = arr.slice(1);
+
+           return arr[0] + sumArrSlow(restElement)
+            
+
+        }
+
+        let start = Date.now();
+        console.log(sumArrSlow(inputArr));
+        let end = Date.now();
+        console.log(`Time consume for run this function is ${(end-start)} milisecoend`);
+        
+        
+
+
+
+
+        function sumArrFast(arr){
+            return helperFun(arr, 0)
+        }
+
+        function helperFun(arr, index){
+            if(arr.length === index) return 0;
+
+           return arr[index] + helperFun(arr, index +1)
+        }
+
+
+        
+        let startFast = Date.now();
+        console.log(sumArrFast(inputArr));
+        let endFast = Date.now();
+        console.log(`Time consume for run this function is ${endFast-startFast} milisecoend`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

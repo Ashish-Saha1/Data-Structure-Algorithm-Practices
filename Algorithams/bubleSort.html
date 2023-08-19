@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // function babbleSort(arr){
+
+        //     for(let i = 0; i<arr.length; i++){
+              
+        //         for(let j =0; j<arr.length -i -1; j++){
+        //             console.log('To see', arr, arr[j], arr[j+1]);
+                    
+                    
+        //             if(arr[j]> arr[j+1]){
+        //                 let temp = arr[j];
+        //                 arr[j] = arr[j+1];
+        //                 arr[j+1] = temp;
+                        
+        //             }
+        //         }
+                
+        //     }
+
+
+        //    return arr
+
+        // }
+
+        // console.log(babbleSort([20, 2, -5, 11]));
+        
+
+
+            // Optimaized Bubble sort
+
+            function babulSort(arr){
+              let swapped;
+            for(let i = 0; i<arr.length; i++){
+                swapped = false;
+                for(let j = 0; j<arr.length -1; j++){
+                    console.log('see',arr, arr[j], arr[j+1], swapped);  
+                    //debug for console
+                    if(arr[j] > arr[j +1]){
+                        let tem = arr[j];  
+                        
+                        arr[j] = arr[j+1];  
+                        arr[j+1] = tem;
+                        swapped = true;  //jodi arr[j]>arr[j+1] theke boro hoy tahole if condition
+                                          // er vitore r code execute hobe, that mean swapped ture hobe
+                                          //  jodi arr[j]>arr[j+1] theke choto hoy tahole swappad false hobe
+                    }
+                }
+                if(!swapped)break;
+            }
+              
+                return arr;
+        }
+
+        console.log(babulSort([10, -5, 1, 2, 100]))
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

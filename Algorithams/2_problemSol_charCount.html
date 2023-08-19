@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // function charCount(str){
+        
+        //  let b = {};
+
+        //    for(let i = 0; i < str.length; i++){
+        //        let x = str[i];
+
+        //        if(b[x] > 0){            // condition 'b[x]' evabe o likha jay
+        //              b[x] ++
+        //        }else{
+        //             b[x] = 1
+        //        }
+
+        //    }
+
+        //     return b;
+        //    }
+        // console.log(charCount('hellow everyone!!'));
+
+        function charcount(str){
+
+        let count = {};
+
+        for(let i of str){
+            if(i !== ' ' && i.match(/[a-z]/)){
+            
+        if(!count.hasOwnProperty(i)){
+            count[i] = 1;
+        }else{
+            count[i]++
+        }     
+            }
+        }
+        return count;
+}
+
+      
+        
+        console.log(charcount('hellow everyone!!'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

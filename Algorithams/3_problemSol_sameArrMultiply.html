@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+// function sameArrMultiply(arr1,arr2){
+   
+//    if(arr1.length === arr2.length){
+//     return arr1.every(item=>{
+//         return arr2.includes(item * item)
+//     })
+//    }else{
+//     return false;
+//    }
+
+// }
+
+            //another way
+// function sameArrMultiply(arr1,arr2){
+   
+//    if(arr1.length !== arr2.length){
+//         return false;
+//    }
+   
+//    for(let i = 0; i<arr1.length; i++){
+//         let curentIndex = arr2.indexOf(arr1[i] ** 2);
+//         if(curentIndex === -1){
+//             return false;
+//         }
+        
+//         arr2.splice(curentIndex, 1)
+//    }
+
+//    return true;
+
+// }
+
+//     console.log(sameArrMultiply([2, 5, 3], [25, 4, 9]));
+//     console.log(sameArrMultiply([2, 5, 3], [25, 4, 5]));
+//     console.log(sameArrMultiply([2, 5, 3], [25, 4]));
+    
+
+
+            // Now convert this above problem (Big 0 n2) to (Big 0 n)
+
+
+function sameArrMultiply(arr1,arr2){
+   
+   if(arr1.length !== arr2.length){
+        return false;
+   }
+   
+   let sequence1 = {};
+   let sequence2 = {};
+
+   for(let i of arr1){
+        sequence1[i] = sequence1[i] + 1 || 1;        
+        
+   }
+
+   for(let i of arr2){
+        sequence2[i] = sequence2[i] + 1 || 1;        
+        
+   }
+
+   for(let ele in sequence1){   
+     
+
+     
+       if(!(ele ** 2) in sequence2){
+            return false;
+       }
+
+     if(sequence1[ele] !== sequence2[ele **2]){ // this code for search ele * ele has in sequence2 if yes then ok or show undefined
+        return false                              // console.log(ele, sequence2[ele**2]);
+                                                  // console.log(ele)
+                                                  // sequence2[ele **2] this colde means ele  ** 2 (ex- 3 ** 3) (ex- 5 ** 5) (ex- 4 ** 4) is available in sequence2 or not
+     }
+       
+       
+        
+        
+       
+   }
+
+
+    return true;
+   
+
+}
+
+    console.log(sameArrMultiply([3, 5, 4], [25, 9, 16]));
+    // console.log(sameArrMultiply([2, 5, 3], [25, 4, 5]));
+    // console.log(sameArrMultiply([2, 5, 3], [25, 4]));
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+// function oddNum(arr){
+//     return arr.filter(item=>item%2!==0)
+// }
+
+    //With recursion
+
+// function oddNum(arr){
+//         let myArr = [];
+
+//      function helperFun(input){
+//             if(input.length === 0) return;
+
+//             if(input[0] % 2 !== 0){
+//                 myArr.push(input[0])
+//             }
+
+//             helperFun(input.slice(1))
+           
+//         }
+//        helperFun(arr)
+//         return myArr;
+// }
+
+    
+            //try to solve another way
+function oddNum(arr){
+        
+     return helper(arr, [])
+    
+}
+
+    function helper(input, myArr){
+        if(input.length === 0) return myArr;
+
+        if(input[0] % 2 !== 0){
+            myArr.push(input[0])
+        }
+
+       return helper(input.slice(1), myArr)
+        
+    }
+
+    console.log(oddNum([7,5,13,20,4,9]));
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

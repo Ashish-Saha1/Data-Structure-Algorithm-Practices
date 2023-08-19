@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container With Most Water
+    </title>
+</head>
+<body>
+    
+
+    <script>
+
+// var maxArea = function(height) {
+//             let totalWater = 0;
+//     for(let i = 0; i<height.length; i++){
+
+//         for(let j = i+1; j<height.length; j++){
+//            let lowest = Math.min(height[i], height[j]);
+        
+//         if(totalWater < (lowest * Math.abs(i - j))){
+//                 totalWater = lowest * Math.abs(i-j)
+//         }
+           
+            
+//         }
+//     }
+
+
+
+//     return totalWater;
+
+// };
+
+
+// console.log(maxArea([1,8,6,2,5,4,8,3,7]));
+
+
+                // Need  optimize 
+// var maxArea = function(height) {
+//             let len = height.length;
+//             let totalWater = 0;
+//     for(let i = 0; i<len; i++){
+
+//         for(let j = i+1; j<len; j++){
+//            let lowest = Math.min(height[i], height[j]);
+//            let width = j-i;
+//            let current = lowest * width;
+        
+//             totalWater = Math.max(totalWater, current)
+            
+//         }
+//     }
+
+
+
+//     return totalWater;
+
+// };
+
+
+// console.log(maxArea([1,8,6,2,5,4,8,3,7]));
+
+
+            //Need more optimize & convert to BigO(n2) to BigO(n)
+            // below solution is working with max value * others value if u check ohters testcase & console then u will understand 
+            var maxArea = function(height) {
+                let left = 0;
+                let right = height.length - 1;
+                let maxArea = 0;
+
+            while (left < right) {
+                const currentHeight = Math.min(height[left], height[right]);
+                const width = right - left;
+                const area = currentHeight * width;
+
+                maxArea = Math.max(maxArea, area);
+                console.log(height[left], height[right], area);
+                
+
+                if (height[left] < height[right]) {
+                    left++;
+                  
+                } else {
+                    right--;
+                   
+                }
+                
+            }
+
+        return maxArea;
+        };
+
+console.log(maxArea([1,8,6,2,5,4,8,3,7]));
+console.log(maxArea([1,8,6,2,5,10,8,9,7]));
+
+            // Current hieight   width      = area 
+            // 1, 7 = 1        *    8           8
+            // 8, 7 = 7        *    7       = 49
+            // 8, 3 = 3        *    6           18
+            // 8, 8 = 8        *    5           40
+            // 8, 4 =4         *    4           16
+            // 8, 5 = 5        *    3            15
+            // 8, 2 = 2        *    2           4
+            // 8, 6 = 6        *    1           6
+            
+
+
+
+
+
+
+// Initial state: left = 0, right = 8, maxArea = 0.
+
+//     left = 0, right = 8. The current height is min(1, 7) = 1. The current area is 1 * (8 - 0) = 8. Update maxArea = max(0, 8) = 8. Move left to the right: left = 1.
+//     left = 1, right = 8. The current height is min(8, 7) = 7. The current area is 7 * (8 - 1) = 49. Update maxArea = max(8, 49) = 49. Move left to the right: left = 2.
+//     left = 2, right = 8. The current height is min(6, 7) = 6. The current area is 6 * (8 - 2) = 36. Update maxArea = max(49, 36) = 49. Move left to the right: left = 3.
+//     left = 3, right = 8. The current height is min(2, 7) = 2. The current area is 2 * (8 - 3) = 10. Update maxArea = max(49, 10) = 49. Move left to the right: left = 4.
+//     left = 4, right = 8. The current height is min(5, 7) = 5. The current area is 5 * (8 - 4) = 20. Update maxArea = max(49, 20) = 49. Move left to the right: left = 5.
+//     left = 5, right = 8. The current height is min(4, 7) = 4. The current area is 4 * (8 - 5) = 12. Update maxArea = max(49, 12) = 49. Move left to the right: left = 6.
+//     left = 6, right = 8. The current height is min(8, 7) = 7. The current area is 7 * (8 - 6) = 14. Update maxArea = max(49, 14) = 49. Move left to the right: left = 7.
+//     left = 7, right = 8. The current height is min(3, 7) = 3. The current area is 3 * (8 - 7) = 3. Update maxArea = max(49, 3) = 49. Move left to the right: left = 8.
+//     Now, left (8) is equal to right (8), so we stop the iteration.
+
+// The final result is maxArea = 49, which is the maximum area of water trapped between two vertical lines in the given array.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singly Linked List</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+    class Node {
+        constructor(value){
+            this.value = value;
+            this.next = null;
+        }
+    }
+
+
+    class SinglyLink {
+        constructor(){
+            this.head = null;
+            this.tail = null;
+            this.length = 0;
+        }
+
+        isEmpty(){
+           return this.length === 0;
+        }
+
+        push(value){
+            // let newNode = {
+            //         value:value,
+            //         next: null
+            //     }
+
+            //above code is implemented by bleow & constractor functon is up
+             let newNode = new Node(value)
+            
+            if(this.isEmpty()){
+                this.head = newNode;
+                this.tail = newNode;
+            }else{
+                this.tail.next = newNode;
+                this.tail = newNode;
+            }
+
+            this.length++
+        }
+
+        pop(){
+            if(this.isEmpty()){
+                return null;
+            }
+
+            if(this.length == 1){
+                this.head = null;
+                this.tail = null;
+                this.length = 0;
+            }else{
+                let currentNode = this.head;
+            let lastNode = this.tail;
+            let newCurrentNode;
+
+            while(currentNode){
+                if(currentNode.next === lastNode){
+                    newCurrentNode = currentNode;
+                    break;
+                }else{
+                    currentNode = currentNode.next;
+                }
+
+            }
+
+            newCurrentNode.next = null;
+            this.tail = newCurrentNode;
+            this.length--;
+            }
+
+           
+        }
+
+
+                //shift method implemented by me but u can find modified code at below
+        // shift(){
+        //     if(this.isEmpty()){
+        //         return "hellow";
+        //     }
+
+        //     if(this.length == 1){
+        //         this.head = null;
+        //         this.tail = null;
+        //         this.length = 0;
+        //     }else{
+        //         let currentNode = this.head;
+        //     let lastNode = this.tail;
+        //     let currentLastNode;
+
+        //     while(currentNode){
+        //         if(currentNode.next === lastNode){
+        //             currentLastNode = currentNode.next;
+        //             break
+        //         }else{
+                    
+        //             currentLastNode = currentNode.next;
+        //             break
+        //         }
+        //     }
+
+
+           
+        //     this.head = currentLastNode;
+        //     this.length--;
+        //     }
+
+           
+
+        // }
+
+       
+        //Shift method modified code
+
+        shift(){
+            if(!this.head){
+                return null;
+            }
+
+            if(this.length === 1){
+                this.tail = null;
+            }
+
+            let currentNode = this.head;
+            this.head = currentNode.next;
+            this.length--;
+        }
+
+        unshift(value){
+            // let newNode = {
+            //         value:value,
+            //         next: null
+            //     }
+
+            let newNode = new Node(value)
+
+            if(this.isEmpty()){
+                this.head = newNode;
+                this.tail = newNode;
+            }else{
+                //let current = this.head; //here current is old head
+                //this.head = newNode;
+                //this.head.next = current; // new head er next hobe old head
+
+                // below code & above 3 line code  is same 
+                newNode.next = this.head;
+                this.head = newNode;
+            }
+
+            this.length++;
+        }
+
+        //This method is implemented by me u can find same code in below
+        // showList(){
+        //     let arr = [];
+        //     let firstNode = this.head;
+        //     let lastNode = this.tail;
+            
+           
+
+        //    for (let i = 0; i < this.length; i++){
+          
+        //         if(firstNode !== lastNode){
+        //             arr.push(firstNode.value);
+        //             firstNode = firstNode.next;
+        //         }else{
+        //             arr.push(lastNode.value)
+        //         }
+        //    }
+        //     return arr;
+            
+        // }
+
+
+        //Modified code 
+
+        showList(){
+            let arr = [];
+            let current = this.head;
+
+             while(current){
+                // current etarate korte korte last current is null hobe ja falsy value so while loop run korbe na;
+                arr.push(current.value);
+                current = current.next;
+             }
+
+             return arr;
+        }
+
+    }
+
+    let link = new SinglyLink();
+
+
+    link.push(10)
+    link.push(20)
+    link.push(30)
+    link.push(40)
+    link.unshift(50);
+    link.pop();
+    link.unshift(1000);
+    link.shift()
+
+    
+    link.showList()
+   
+   
+ 
+    console.log(link.showList());
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

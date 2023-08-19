@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+
+        class Stackobject {
+            constructor(){
+                this.database= {};
+                this.count = 0;
+            }
+
+            add(value){
+                this.count ++;
+                this.database[this.count] = value;
+                return this.database;
+                
+            }
+
+
+            remove(value){
+                let removeItem = this.database[this.count] ;
+                delete this.database[this.count] 
+                return this.database;
+                 this.count--
+            }
+
+
+
+        }
+
+        let stack2 = new Stackobject();
+
+        console.log(stack2);
+        console.log(stack2.add(40));
+        console.log(stack2.add(50));
+        console.log(stack2.add(60));
+        console.log(stack2.add(70));
+        console.log(stack2.add(80));
+        console.log(stack2.add(8));
+
+
+        console.log(stack2.remove());
+        
+        
+        
+
+
+
+
+        // const myObj = {
+        //     name: "Rubel",
+        //     roll: 3222
+        // }
+
+        // myObj['gender'] = 'male';
+        // myObj.age = 35;
+        // delete myObj.roll
+        // console.log(myObj);
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

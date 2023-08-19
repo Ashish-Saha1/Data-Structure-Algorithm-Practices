@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+
+
+class Stack {
+    constructor(arr){
+        this.arr = [];
+    }
+
+    addArr(value){
+        this.arr.push(value);
+        return this.arr;
+    }
+
+    lookUp(){
+       return this.arr[this.arr.length-1]
+
+    }
+
+    removeArr(){
+        this.arr.pop();
+        return this.arr;
+    }
+
+
+}
+
+let stack1 = new Stack();
+
+console.log(stack1.addArr(20));
+console.log(stack1.addArr(30));
+console.log(stack1.addArr(40));
+console.log(stack1.lookUp());
+console.log(stack1.removeArr());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

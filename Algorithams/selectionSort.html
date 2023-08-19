@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        function selectionSort(arr){
+            for(let i = 0; i<arr.length; i++){
+
+                let lowestNum = i;
+
+                for(let j = i + 1; j<arr.length; j++){
+                    console.log(arr[lowestNum], arr[j]);
+                    if(arr[lowestNum] > arr[j]){
+                        lowestNum = j;
+                    }
+
+                }
+                
+                if(arr[i] !== arr[lowestNum]){
+                    console.log('see', arr, arr[i], arr[lowestNum]);
+                    let temp = arr[i]
+                    arr[i] = arr[lowestNum]
+                    arr[lowestNum]= temp
+                }
+            }
+                return arr;
+        }
+
+
+        console.log(selectionSort([12, 8, 1, 4, 15, 9]));
+        
+
+
+
+    </script>
+</body>
+</html>
