@@ -32,6 +32,7 @@
                 this.head = null;
                 this.tail = null;
                 this.length = 0;
+                
             }
 
             push(value){
@@ -56,11 +57,41 @@
                    
                 }
 
-
+                
                 this.length++;
 
             }
 
+
+            pop(){
+                if(!this.head){
+                    return null;
+
+                }
+
+                if(this.length === 1){
+                    this.head = null;
+                    this.tail = null;
+                    this.length = 0;
+                }
+
+                else{
+                    this.tail = this.tail.previous;
+                    this.tail.next = null;
+
+                    //below line is not necessary as my opinion
+                    //this.tail.previous = null;
+
+                    this.length--;
+                }
+
+            }
+
+
+
+           
+
+           
 
         }
 
@@ -69,7 +100,9 @@
         doubleLink.push(10);
         doubleLink.push(20);
         doubleLink.push(30);
-        // doubleLink.push(40);
+        doubleLink.pop();
+       
+      
 
         console.log(doubleLink)
         
