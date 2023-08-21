@@ -90,8 +90,33 @@
             }
 
 
+            shift(){
+                if(!this.head){
+                    return null
+                }
+                // just show which node is shifted
+                let oldHead = this.head
 
-           
+                if(this.length === 1){
+                    this.head = null;
+                    this.tail = null;
+                   
+                }else{
+                
+
+                this.head = this.head.next;
+                this.head.previous = null;
+                
+               
+               
+                }
+
+                this.length--;
+                // just show which node is shifted
+                return oldHead;
+            }
+
+            
 
            
 
@@ -102,7 +127,12 @@
         doubleLink.push(10);
         doubleLink.push(20);
         doubleLink.push(30);
-        doubleLink.pop();
+        doubleLink.push(40);
+        doubleLink.push(50);
+        console.log(doubleLink.shift())
+        console.log(doubleLink.shift())
+        
+       
        
       
 
