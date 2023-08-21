@@ -116,7 +116,35 @@
                 return oldHead;
             }
 
-            
+            unshift(value){
+                let newNode = {
+                    value: value,
+                    next: null,
+                    previous: null
+                }
+
+                if(!this.head){
+                    this.head = newNode;
+                    this.tail = newNode;
+                    
+                }
+                else{
+                    //implemented my me
+                    // let oldHead = this.head;
+                    // this.head = newNode;
+                    // this.head.next = oldHead;
+                    // oldHead.previous = newNode;
+               
+
+                this.head.previous = newNode;
+                newNode.next = this.head;
+                this.head = newNode;
+              
+                }
+                
+
+                this.length++;
+            }
 
            
 
@@ -124,13 +152,14 @@
 
         let doubleLink = new DoublyLinkList()
 
-        doubleLink.push(10);
-        doubleLink.push(20);
-        doubleLink.push(30);
-        doubleLink.push(40);
-        doubleLink.push(50);
-        console.log(doubleLink.shift())
-        console.log(doubleLink.shift())
+        // doubleLink.push(10);
+        // doubleLink.push(20);
+        // console.log(doubleLink.shift())
+        // console.log(doubleLink.shift())
+
+        doubleLink.unshift(1)
+        doubleLink.unshift(2)
+        doubleLink.unshift(3)
         
        
        
