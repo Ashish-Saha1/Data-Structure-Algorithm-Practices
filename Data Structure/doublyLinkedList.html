@@ -146,25 +146,37 @@
                 this.length++;
             }
 
-           
+           showList(){
+
+                let arr = [];
+                let startNode = this.head;
+
+                
+                while(startNode){
+                    arr.push(startNode.value);
+                    startNode = startNode.next;
+                }
+
+                return arr;
+           }
 
         }
 
         let doubleLink = new DoublyLinkList()
 
-        // doubleLink.push(10);
-        // doubleLink.push(20);
+        doubleLink.push(10);
+        doubleLink.push(20);
         // console.log(doubleLink.shift())
         // console.log(doubleLink.shift())
 
         doubleLink.unshift(1)
         doubleLink.unshift(2)
         doubleLink.unshift(3)
+        doubleLink.pop()
+        doubleLink.push(30)
         
-       
-       
-      
 
+        console.log(doubleLink.showList())
         console.log(doubleLink)
         
 
