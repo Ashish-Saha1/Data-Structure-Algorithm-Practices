@@ -12,7 +12,7 @@
 
     <script>
 
-        class Node {
+        class Book {
             constructor(value){
                 this.value = value;
                 this.next = null;
@@ -30,13 +30,42 @@
 
 
             push(value){
-                let newNode = new Node();
+                let newBook = new Book(value);
+
+                if(this.length === 0){
+                    this.top = newBook;
+                    this.botton = newBook
+                }else{
+                    let oldTop = this.top;
+                    this.top = newBook;
+                    this.top.next = oldTop;
+                }
+
+
+
+
                 this.length ++;
             }
 
 
+            shift(){
+                if(!this.top){
+                    return null;
+                }
+
+                if(this.length === 1){
+                    this.top = null;
+                    this.botton = null;
+                }else{
+                    this.top = this.top.next;
+                }
+                this.length--;
+                
+            }
 
 
+
+            
 
 
 
@@ -44,7 +73,13 @@
 
 
         let stackList = new StackLinkList();
-        stackList.push(10)
+        stackList.push(10);
+        stackList.push(20);
+        stackList.push(30);
+        stackList.shift();
+        stackList.shift();
+        stackList.shift();
+        
 
         console.log(stackList)
 
