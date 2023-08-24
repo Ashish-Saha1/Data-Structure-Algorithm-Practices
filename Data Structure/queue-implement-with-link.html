@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+
+        class Node {
+            constructor(value){
+                this.value = value;
+                this.next = null;
+            }
+        }
+
+
+        class Queue{
+            constructor(value){
+                this.first = null;
+                this.last = null;
+                this.length = 0;
+            }
+
+            //insert node
+            enqueue(value){
+                let newNode = new Node(value);
+
+                if(this.length === 0){
+                    this.first = newNode;
+                    this.last = newNode;
+                }else{
+                   
+                    this.last.next = newNode;
+                    this.last = newNode;
+                }
+
+                this.length++;
+            }
+
+            //Remove Node
+            dequeue(){
+                if(!this.first){
+                    return null;
+                }
+
+                if(this.length === 1){
+                    this.first = null;
+                    this.last = null;
+                }else{
+                    this.first = this.first.next;
+                }
+
+                
+                this.length--;
+            }
+
+
+
+        }
+
+        let queueList = new Queue();
+
+        queueList.enqueue('Rubel')
+        queueList.enqueue('Ashish')
+        queueList.enqueue('Rajesh')
+        queueList.enqueue('Sumon')
+         queueList.dequeue()
+        queueList.dequeue()
+        queueList.dequeue()
+        queueList.dequeue()
+
+        console.log(queueList)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
