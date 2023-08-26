@@ -18,16 +18,54 @@
             }
         }
 
-
+        
         class BinarySearchTree {
             constructor(){
                 this.root = null;
             }
 
             addNode(value){
-                if(this.root === null){
-                    this.root = new Node(value)
+                let newNode = new Node(value);
+                if(this.root === null){   
+                    this.root = newNode;
+                    return;
+                }else{
+                    let current = this.root;
+                    let added = false;
+
+                    while(!added && current){
+                      if(current.value === value){
+                        console.log("Duplicate Now Allowed")
+                        return
+                      }
+                                // Right side tree
+                      else if(current.value < value){
+                            if(!current.rightChild){
+                                current.rightChild = newNode;
+                                added = true;
+                            }else{
+                                current = current.rightChild;
+                            }
+                      }
+                                //Left side Tree
+                      else if(current.value > value){
+                        if(!current.leftChild){
+                                current.leftChild = newNode;
+                                added = true;
+                            }else{
+                                current = current.leftChild;
+                            }
+                      }
+                      
+                    }
+
+
                 }
+
+               
+
+
+
             }
 
         }
@@ -36,6 +74,15 @@
         let BST = new BinarySearchTree();
 
         BST.addNode(12);
+        BST.addNode(12);
+        BST.addNode(15);
+        BST.addNode(10);
+        BST.addNode(20);
+        BST.addNode(14);
+        BST.addNode(8);
+        BST.addNode(11);
+     
+       
 
         console.log(BST)
 
