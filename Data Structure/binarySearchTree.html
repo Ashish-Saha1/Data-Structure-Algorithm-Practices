@@ -55,25 +55,44 @@
                             }else{
                                 current = current.leftChild;
                             }
-                      }
-                      
+                      }                   
                     }
-
-
-                }
-
-               
-
-
-
+                }              
             }
+
+
+            find(value){
+                if(!this.root){
+                    console.log("Data Not Found")
+                    return 
+                }
+                else{
+                    let current = this.root;
+                    // i is implemented by me to see how many node travarseing
+                    let i = 1;
+
+                    while(current){
+                        if(current.value === value){
+                            console.log(i)
+                            console.log(current)
+                            return current;
+                        }
+
+                        else if(current.value < value){
+                            current = current.rightChild;
+                        }else{
+                            current = current.leftChild;
+                        }
+                        i++;
+                    }
+                }
+            }
+
 
         }
 
 
         let BST = new BinarySearchTree();
-
-        BST.addNode(12);
         BST.addNode(12);
         BST.addNode(15);
         BST.addNode(10);
@@ -81,6 +100,10 @@
         BST.addNode(14);
         BST.addNode(8);
         BST.addNode(11);
+        BST.addNode(4);
+        BST.addNode(30);
+
+        BST.find(14);
      
        
 
