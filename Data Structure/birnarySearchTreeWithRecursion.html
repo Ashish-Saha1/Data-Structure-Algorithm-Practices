@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        class Node {
+            constructor(value){
+                this.value = value;
+                this.left = null;
+                this.right = null;
+            }
+        }
+
+        
+        class BinarySearchTree {
+            constructor(){
+                this.root = null;
+            }
+
+            isEmpty(){
+                return this.root === null;
+            }
+
+            insert(value){
+                let newNode = new Node(value)
+
+               if(this.isEmpty()){
+                this.root = newNode;
+               }
+               
+               else{
+                    this.insertNode(this.root, newNode)
+               }
+
+            }
+           
+            insertNode(root, newNode){
+                if(root.value > newNode.value){
+                    if(root.left === null){
+                        root.left = newNode;
+                    }else{
+                        //Here just chenge root = this.root means this.root.value as per if condition to  root = root.left.value
+                        // below right side code as per same as above execution 
+                        this.insertNode(root.left, newNode)
+                    }
+                }
+
+                else{                 
+                    if(root.right === null){
+                         root.right = newNode;
+                        }
+                    else{
+                        this.insertNode(root.right, newNode)
+                    }
+                }
+            }
+          
+
+        }
+
+
+        let BST = new BinarySearchTree();
+        
+        console.log('Is This Node Empty?', BST.isEmpty())
+
+        BST.insert(15)
+        BST.insert(10)
+        BST.insert(20)
+        BST.insert(12)
+        BST.insert(30)
+       
+        
+     
+       
+
+        console.log(BST)
+
+
+//This below not is to understand recursive call
+
+// Certainly! Let's walk through an example of how the insertNode method works with a recursive call when you can't directly insert the new node because the left subtree is not empty. We'll illustrate the process step by step.
+
+// Consider the following binary search tree:
+
+// markdown
+// Copy code
+//       10
+//      /  \
+//     5    15
+//    / \     \
+//   3   7     20
+// You want to insert a new node with a value of 8 into this tree.
+
+// Start with the root node, which has a value of 10.
+
+// Compare the value of the new node (8) with the value of the current node (10). Since 8 is less than 10, you need to insert the new node into the left subtree.
+
+// Check if the left subtree of the current node is empty. In this case, it's not empty because there's a node with a value of 5 in the left subtree.
+
+// Since the left subtree is not empty, you make a recursive call to the insertNode method, passing the left subtree's root (node with a value of 5) as the new root.
+
+// kotlin
+// Copy code
+// this.insertNode(root.left, newNode);
+// Now, the execution "moves" to the left subtree, and you're working with the node containing 5 as the current node.
+
+// Again, compare the value of the new node (8) with the value of the current node (5). 8 is greater than 5, so you need to insert the new node into the right subtree of this current node.
+
+// Check if the right subtree of the current node is empty. It is empty, so you can directly insert the new node with a value of 8 as the right child of this node.
+
+// arduino
+// Copy code
+// root.right = newNode; // Insert 8 as the right child of the node with value 5
+// Now, the tree becomes:
+
+// Copy code
+//    10
+//   /  \
+//  5    15
+// / \     \
+// 3 7 20
+// /
+// 8
+
+// sql
+// Copy code
+
+// 7. The recursive call is now complete because the base case (an empty subtree) has been reached, and the new node has been successfully inserted into the tree.
+
+// The key point here is that the `insertNode` method recursively "dives" into the tree, movin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
