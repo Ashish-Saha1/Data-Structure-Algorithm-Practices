@@ -62,7 +62,6 @@
                 }
             }
 
-
             search(root, value){
                 if(!root){
                    // here if no data found then show in console "Data not found"
@@ -84,6 +83,89 @@
                }
 
             }
+
+
+            // Search method implemention with helper function
+
+            // search(value){
+            //     if(!this.root){
+            //         return "Data not found"
+            //     }else{
+            //         return this.helperSearch(this.root, value)
+            //     }
+            // }
+
+            // helperSearch(root, input){
+            //     if(!root){
+            //         return "Data not found"
+            //     }
+            //     else{
+            //         if(root.value === input){
+            //             return true;
+            //         }
+
+            //         else if(root.value < input){
+            //            return this.helperSearch(root.right, input)
+            //         }else{
+            //             return this.helperSearch(root.left, input)
+            //         }
+
+            //     }
+            // }
+
+                //implemented with while loop
+            // min(){
+
+            //     let root = this.root;
+
+            //     if(!this.root){
+            //         return "No data found"
+            //     }
+            //     else{
+            //         while(root){
+            //             if(!root.left){
+            //             return root.value
+            //         }
+            //         else if(root.value > root.left.value){
+            //             root = root.left;
+            //         }
+                 
+            //        }
+            //     }
+            // }
+
+
+            min(root){
+                if(!root){
+                    return "No Data Found"
+                }
+
+                if(!root.left){
+                    return root.value
+                }
+                else{
+                    if(root.value > root.left.value){
+                       return this.min(root.left)
+                    }
+                }
+            }
+
+
+            max(root){
+                if(!root){
+                    return "No Data Found"
+                }
+
+                if(!root.right){
+                    return root.value
+                }
+                else{
+                    if(root.value < root.right.value){
+                       return this.max(root.right)
+                    }
+                }
+            }
+
             
 
         }
@@ -93,19 +175,31 @@
         
         console.log('Is This Node Empty?', BST.isEmpty())
 
-        BST.insert(15)
-        BST.insert(10)
-        BST.insert(20)
         BST.insert(12)
-        BST.insert(30)
+        BST.insert(10)
+        BST.insert(8)
+        BST.insert(11)
+        BST.insert(15)
+        BST.insert(14)
+        BST.insert(20)
 
-        console.log(BST.search(BST.root, 15));
-        console.log(BST.search(BST.root, 30));
-        console.log(BST.search(BST.root, 50));
 
-        
+        //below call for search 
+        // console.log(BST.search(BST.root, 15));
+        // console.log(BST.search(BST.root, 10));
+        // console.log(BST.search(BST.root, 50));
+
+        //below search call with helper function
+        // console.log(BST.search(10))
+        // console.log(BST.search(20))
+        // console.log(BST.search(12))
+        // console.log(BST.search(50))
+
+        // This call is wihle loop min method
+       // console.log(BST.min())
        
-        
+        console.log(BST.min(BST.root))
+        console.log(BST.max(BST.root))
      
        
 
