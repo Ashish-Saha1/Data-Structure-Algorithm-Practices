@@ -63,24 +63,28 @@
             }
 
 
-            search(value){
-                if(this.root === null){
-                    console.log('Data Not Found');
+            search(root, value){
+                if(!root){
+                   // here if no data found then show in console "Data not found"
+                   // because when given value not match with root.right traversing 
+                   // & the end of root.right is null so its show "data not found"
                     return 'Data Not Found';
                 }
 
                else{
-                    this.searchValue(this.root, newNode)
+                    if(root.value === value){
+                        return true;
+                    } 
+                    else if(root.value < value){
+                       return this.search(root.right, value)
+                    }
+                    else{
+                       return this.search(root.left, value)
+                    }
                }
 
             }
             
-            searchValue()
-
-
-
-
-
 
         }
 
@@ -94,6 +98,12 @@
         BST.insert(20)
         BST.insert(12)
         BST.insert(30)
+
+        console.log(BST.search(BST.root, 15));
+        console.log(BST.search(BST.root, 30));
+        console.log(BST.search(BST.root, 50));
+
+        
        
         
      
