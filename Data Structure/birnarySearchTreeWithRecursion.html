@@ -166,6 +166,58 @@
                 }
             }
 
+
+            //Depth First search (DFS)
+            //Preorder
+
+            preOrder(root){
+                if(root){
+                    console.log(root.value);
+                    this.preOrder(root.left);
+                    this.preOrder(root.right);
+                }
+            }
+
+
+            
+            inOrder(root){
+                if(root){
+                    this.inOrder(root.left);
+                    console.log(root.value);
+                    this.inOrder(root.right);
+                }
+            }
+
+
+            postOrder(root){
+                if(root){
+                this.postOrder(root.left);
+                this.postOrder(root.right);
+                console.log(root.value)
+                }
+            }
+
+            //breth first search
+            levelOrder(){
+                let arr = [];
+                arr.push(this.root);
+            
+                while(arr.length){
+                   let current = arr.shift();
+                   console.log(current.value);
+                  
+                   if(current.left){
+                        arr.push(current.left);
+                        
+                   }
+                   if(current.right){
+                    arr.push(current.right)
+                   }
+
+                }
+                
+            }
+
             
 
         }
@@ -198,10 +250,14 @@
         // This call is wihle loop min method
        // console.log(BST.min())
        
-        console.log(BST.min(BST.root))
-        console.log(BST.max(BST.root))
+        // console.log(BST.min(BST.root))
+        // console.log(BST.max(BST.root))
      
-       
+        //BST.preOrder(BST.root);
+        //BST.inOrder(BST.root);
+        //BST.postOrder(BST.root);
+
+        BST.levelOrder()
 
         console.log(BST)
 
