@@ -218,14 +218,42 @@
                 
             }
 
-            
+            //Delete a node
+
+            delete(value){
+                this.root = this.deleteNode(this.root, value)
+            }
+
+            deleteNode(root, value){
+                if(root === null){
+                    return null;
+                }
+                
+                if(root.value > value){
+                    this.left = this.deleteNode(root.left, value)
+                }else if(root.value < value){
+                    this.right = this.deleteNode(root.right, value)
+                }else{
+                    if(!root.left && !root.right){
+                        return null;
+                    }else if(!root.left){
+                        return root.right
+                    }else if(!root.right){
+                        return root.left
+                    }
+                }
+
+
+            }
+
+
 
         }
 
 
         let BST = new BinarySearchTree();
         
-        console.log('Is This Node Empty?', BST.isEmpty())
+        //console.log('Is This Node Empty?', BST.isEmpty())
 
         BST.insert(12)
         BST.insert(10)
@@ -257,9 +285,15 @@
         //BST.inOrder(BST.root);
         //BST.postOrder(BST.root);
 
-        BST.levelOrder()
+        //BST.levelOrder()
 
         console.log(BST)
+
+
+
+
+
+
 
 
 //This below not is to understand recursive call
