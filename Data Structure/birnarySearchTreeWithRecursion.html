@@ -218,22 +218,24 @@
                 
             }
 
-            //Delete a node
+           // Delete a node
 
             delete(value){
                 this.root = this.deleteNode(this.root, value)
             }
 
-            deleteNode(root, value){
+            deleteNode(root, value){        
                 if(root === null){
                     return root;
                 }
-                
+                // here if the value is equal to the root.left by recursivly call
+                // then else block execute because if & else if condition does not match.
                 if(root.value > value){
                     root.left = this.deleteNode(root.left, value)
                 }else if(root.value < value){
                     root.right = this.deleteNode(root.right, value)
-                }else{
+                }
+                else{
                     if(!root.left && !root.right){
                         return null;
                     }
@@ -243,11 +245,17 @@
                         return root.left
                     }
                     root.value = this.min(root.right);
+
+                    //when below line executed then root.right will be 15 & root.value will be 14
+                    // then executed root.left = this.deleteNode(root.left, value) as per condition & process will be same as previous
                     root.right = this.deleteNode(root.right, root.value)
                 }
 
                 return root;
             }
+
+
+            
 
 
 
@@ -265,6 +273,7 @@
         BST.insert(15)
         BST.insert(14)
         BST.insert(20)
+        BST.insert(7)
 
 
         //below call for search 
@@ -292,6 +301,8 @@
         console.log(BST)
 
         BST.delete(12)
+        BST.delete(7)
+        BST.delete(10)
         BST.delete(14)
         
         BST.levelOrder()
